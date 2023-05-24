@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@600&display=swap');
+
+//font settings
+$mainFont : 'Vollkorn',
+serif;
+$background : #e0d1bf;
+$regular: 400;
+$medium: 500;
+$bold: 600;
+
+// colors
+
+$green: #a1d335;
+$orange: #de9a35;
+$red: #c5502c;
+$violet: #b1978a;
+$white: #ffffff;
+//button
+
+button {
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

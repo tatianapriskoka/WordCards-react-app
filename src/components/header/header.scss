@@ -1,0 +1,10 @@
+@import '../styles';
+
+.header {
+    height: 100px;
+    background-color: $background;
+    font-family: $mainFont ;
+    font-weight: $bold;
+    font-size: 20px;
+    color: $white;
+}
