@@ -1,0 +1,48 @@
+@import '../styles';
+
+.flashcard {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $green;
+    width: 350px;
+    height: fit-content;
+    min-height: 400px;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 30px;
+}
+
+.flashcard__english {
+    font-size: 14px;
+    font-family: $mainFont;
+    padding-top: 20px;
+    font-weight: $regular;
+}
+
+.flashcard__transcription {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.flashcard__translation {
+    margin-top: 20px;
+}
+
+.flashcard__russian {
+    font-family: $mainFont;
+    font-size: 14px;
+    color: $green;
+    font-weight: $regular;
+}
+
+.flashcard__button {
+    font-family: $mainFont;
+    font-weight: $medium;
+    font-size: 10px;
+    padding: 3% 5% 4% 5%;
+    border-radius: 20px;
+    background-color: $lemon;
+    color: $orange;
+    border: none;
+}
