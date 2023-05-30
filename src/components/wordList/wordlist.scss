@@ -1,0 +1,70 @@
+@import '../styles';
+@import '../button/button';
+
+.head {
+    padding: 20px 0 0 0;
+    font-family: $mainFont ;
+    font-weight: $bold;
+    font-size: 20px;
+    color: $green;
+}
+
+.table {
+    padding: 15px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table__item td {
+    padding-right: 20px;
+    font-size: 15px;
+}
+
+.table__head th {
+    padding-right: 20px;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.button-edit {
+    background-color: $orange;
+    border: 1px solid $orange;
+    color: $red;
+}
+
+.button-delete {
+    background-color: $green;
+    border: 1px solid $white;
+    color: $violet;
+}
+
+.table__item__edited input {
+    padding: 5px;
+    border: 1px solid $green;
+    font-size: 14px;
+    font-family: $mainFont;
+
+    &:focus {
+        background-color: $white;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $green;
+        border-radius: 3px;
+    }
+}
+
+.button-save {
+    background-color: $green;
+    border: 1px solid $green;
+    color: $red;
+}
+
+.button-cancel {
+    background-color: $orange;
+    border: 1px solid $orange;
+    color: $red;
+}

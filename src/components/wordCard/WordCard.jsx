@@ -1,4 +1,4 @@
-import './WordList/wordlist.scss';
+import '../wordList/wordlist.scss';
 import { useState } from 'react';
 
 function WordCard(props) {

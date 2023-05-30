@@ -1,0 +1,9 @@
+@import './components/styles';
+
+.main {
+    height: fit-content;
+    font-family: $mainFont;
+    font-weight: $regular;
+    font-size: 14px;
+    background-color: $white;
+}
