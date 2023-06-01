@@ -1,0 +1,11 @@
+@import '../styles.scss';
+
+.flashcards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+    overflow: hidden;
+    column-gap: 6vw;
+}
