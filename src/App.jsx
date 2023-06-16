@@ -1,19 +1,36 @@
 import './App.scss';
 import WordList from './components/wordList/WordList';
-import Search from './components/searchForm/SearchForm';
-import WordCard from './components/wordCard/WordCard';
 import Header from './components/header/Header';
-import CardSlider from './components/cardSlider/CardSlider';
+import Footer from './components/footer/Footer';
+import Search from './components/searchForm/SearchForm';
+import CardSlider from './components/cardslider/CardSlider';
+import WordCard from './components/wordCard/WordCard';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+
+
 
 function App() {
+
   return (
-    <>
-      <Header></Header>
-      <main className='main'>
-        <WordList></WordList>
-        <CardSlider></CardSlider>
-      </main>
-    </>
+    <Router>
+      <>
+        <Header></Header>
+        <main className='main'>
+          <Routes>
+            <Route path='/game' element={<CardSlider />} />;
+            <Route exact path='/' element={<WordList />} />
+          </Routes>
+
+        </main>
+
+      </>
+    </Router>
   );
 }
 

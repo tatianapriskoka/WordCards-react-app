@@ -8,8 +8,7 @@ function CardSlider(props) {
     const [index, setIndex] = useState(cardIndex ? index : 0);
 
     const card = cardList.filter(el => el.id === index);
-    return
-    (
+    return (
         <section className='flashcards-container'>
             <button className='button-arrow button-arrow-left' onClick={() => { setIndex(index - 1) }} disabled={index === 0}>
                 <span className='material-symbols-outlined'>--</span>

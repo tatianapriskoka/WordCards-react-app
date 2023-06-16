@@ -3,8 +3,7 @@ import WordCard from '../wordCard/WordCard';
 import { cardList } from '../../cardsData';
 
 function WordList() {
-    return
-    (
+    return (
         <table className="table">
             <caption className='head'>Word List</caption>
             <thead>
