@@ -1,10 +1,9 @@
 import './App.scss';
 import WordList from './components/wordList/WordList';
 import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import Search from './components/searchForm/SearchForm';
+
 import CardSlider from './components/cardslider/CardSlider';
-import WordCard from './components/wordCard/WordCard';
+
 
 import {
   BrowserRouter as Router,

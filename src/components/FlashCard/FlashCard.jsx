@@ -10,7 +10,7 @@ function FlashCard(props) {
     }
 
     return (
-        <div className='flashcard' id={id} key={id} >
+        <div className='flashcard' key={id}  >
             <div className='flashcard__english'>{english}</div>
             <div className='flashcard__transcription'>{transcription}</div>
             <div className='flashcard__translation' onClick={handleChange}>{

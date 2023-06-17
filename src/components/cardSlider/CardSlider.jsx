@@ -13,10 +13,9 @@ function CardSlider(props) {
             <button className='button-arrow button-arrow-left' onClick={() => { setIndex(index - 1) }} disabled={index === 0}>
                 <span className='material-symbols-outlined'>--</span>
             </button>
-            {
-                card.map(data => {
-                    return <FlashCard {...cardList} key={cardList.id} />
-                })
+            {card.map(data => {
+                return <FlashCard key={data.id} {...data} />
+            })
             }
 
             <button className='button-arrow button-arrow-right' onClick={() => { setIndex(index + 1) }} disabled={index === cardList.length - 1}>
