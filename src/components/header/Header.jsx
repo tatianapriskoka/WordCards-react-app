@@ -11,7 +11,7 @@ function Header() {
     return (
         <header className='header'>
             <div className='header__logo logo'>
-                <Link to='/'><img className='logo__img' src='/images/logo.jpg' alt='logo' /></Link>
+                <Link to='/'><img className='logo__img' src='/image/icons-jake.svg' alt='logo' /></Link>
             </div>
 
             <nav className='header__navigation navigation'>

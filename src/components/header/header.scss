@@ -2,7 +2,7 @@
 
 .header {
     height: 100px;
-    background-color: $background;
+    background-color: $orange;
     font-family: $mainFont ;
     font-weight: $bold;
     font-size: 20px;
@@ -13,26 +13,23 @@
     align-items: center;
     position: sticky;
     top: 0;
+    margin-bottom: 20px;
 }
 
 .logo {
-    display: inline-block;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 7%;
-    height: 7%;
+    display: block;
+
+
     padding-left: 5%;
 
-    &:hover {
-        cursor: pointer;
-    }
+
 }
 
 .logo__img {
-    width: 90%;
+    width: 100%;
     height: 100%;
-    object-fit: cover;
-    background-color: none;
+    //object-fit: cover;
+
 }
 
 .navigation {
@@ -67,33 +64,18 @@
 
 
 @media screen and (min-width: 700px) and (max-width: 1399px) {
-    .logo {
-        width: 8.3%;
-        height: 8.3%;
-    }
+
 
     .navigation {
-        font-size: 2.5vw;
+        font-size: 25px;
     }
 
 }
 
 @media screen and (max-width: 699px) {
-    .logo {
-        width: 14%;
-        height: 14%;
-    }
+
 
     .navigation {
-        font-size: 4vw;
+        font-size: 20px;
     }
-}
-
-.header {
-    height: 100px;
-    background-color: $background;
-    font-family: $mainFont ;
-    font-weight: $bold;
-    font-size: 20px;
-    color: $white;
 }
