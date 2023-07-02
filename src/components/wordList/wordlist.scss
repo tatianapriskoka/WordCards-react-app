@@ -68,3 +68,17 @@ button {
     border: 1px solid $orange;
     color: $red;
 }
+
+.full {
+    border: 1px solid $green;
+}
+
+.disabled-btn {
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    font-weight: $bold;
+    font-size: 1.2vw;
+}
