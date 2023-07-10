@@ -1,10 +1,12 @@
+import { editWord, deleteWord } from '../../API/requests';
 import '../wordList/wordlist.scss';
 import { useState } from 'react';
 
+
 function WordCard(props) {
-    const { english, russian, transcription } = props;
+    const { id, english, russian, transcription, setGettingAllWords } = props;
     const [isEdited, setIsEdited] = useState(false);
-    const [data, setData] = useState({ english, russian, transcription });
+    const [data, setData] = useState({ english, russian, transcription, id });
 
     const [isEmpty, setEmpty] = useState(false);
     const [isDisabled, setDisabled] = useState(false);
@@ -30,7 +32,6 @@ function WordCard(props) {
 
         if (str.match(reg)) {
             setError(false);
-            console.log(`Result: ${str}`);
             return true;
         } setError(true);
         return false;
@@ -43,9 +44,26 @@ function WordCard(props) {
     const onButtonChange = () => {
         setIsEdited(!isEdited);
     }
+    const onDeleteClick = () => {
+        deleteWord(data.id).then(() => {
+            const random = Math.random() * 100;
+            setGettingAllWords(random);
+        });
+    }
+
+
+    const onEditFinishClick = () => {
+        editWord(data.id, data)
+            .then(() => {
+                const random = Math.random() * 100;
+                setGettingAllWords(random);
+            })
+
+    }
+
 
     if (isEdited) return (
-        <tr className='table__item table__item_edited'>
+        <tr id={data.id} className='table__item table__item_edited'>
             <td><input className={isEmpty ? 'empty' : 'full'} type='text'
                 onChange={onEditFinished}
                 defaultValue={data.english} name='english' /></td>
@@ -56,7 +74,7 @@ function WordCard(props) {
                 onChange={onEditFinished}
                 defaultValue={data.russian} name='russian' /></td>
             <td><button disabled={isDisabled} className={isDisabled ? 'button-save disabled-btn' : 'button-save'}
-                onClick={onEditFinished}>Сохранить</button></td>
+                onClick={onEditFinishClick}>Сохранить</button></td>
             <td><button className='button-cancel' onClick={makeEdited}>Отменить</button></td>
             {isError && <td> <span className='error'>Можно пользоваться только буквами</span></td>}
         </tr>
@@ -67,7 +85,7 @@ function WordCard(props) {
             <td>{data.transcription}</td>
             <td>{data.russian}</td>
             <td><button className='button-edit' onClick={makeEdited}>Редактировать</button></td>
-            <td><button className='button-delete'>Удалить</button></td>
+            <td><button onClick={onDeleteClick} className='button-delete'>Удалить</button></td>
         </tr>
     );
 }

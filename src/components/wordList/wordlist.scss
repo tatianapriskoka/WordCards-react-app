@@ -82,3 +82,14 @@ button {
     font-weight: $bold;
     font-size: 1.2vw;
 }
+
+.table__add-word th {
+    padding-right: 2vw;
+}
+
+.table__add-word input {
+    font-size: 1.7vw;
+    border: none;
+    border-bottom: 2px solid $red;
+    border-top: 2px solid $green;
+}
