@@ -1,10 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import './cardslider.scss';
 import FlashCard from '../FlashCard/FlashCard';
 import { cardList } from '../../cardsData';
+import dataContext from '../../dataContext';
 
 function CardSlider(props) {
     const { cardIndex } = props;
+    const { data, isLoading, isError } = useContext(dataContext)
     const [index, setIndex] = useState(cardIndex ? index : 0);
     const [wordsLearn, setWords] = useState(0);
 
@@ -17,12 +19,13 @@ function CardSlider(props) {
     };
     const card = cardList.filter(el => el.id === index);
 
-    const buttonRef = useRef();
+    if (isLoading) {
+        return <p>Loading ...</p>;
+    }
+    if (isError) {
+        return <p>{isError.message}</p>;
+    }
 
-    useEffect(() => {
-        buttonRef.current.focus();
-
-    }, [])
 
     return (
         <>
@@ -31,7 +34,7 @@ function CardSlider(props) {
                     <span className='material-symbols-outlined'>--</span>
                 </button>
                 {card.map(data => {
-                    return <FlashCard key={data.id} {...data} countWords={countWords} ref={buttonRef} />
+                    return <FlashCard key={data.id} {...data} countWords={countWords} />
                 })
                 }
 

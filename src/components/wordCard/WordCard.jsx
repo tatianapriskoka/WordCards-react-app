@@ -3,7 +3,7 @@ import '../wordList/wordlist.scss';
 import { useState } from 'react';
 
 
-function WordCard(props) {
+const WordCard = (props) => {
     const { id, english, russian, transcription, setGettingAllWords } = props;
     const [isEdited, setIsEdited] = useState(false);
     const [data, setData] = useState({ english, russian, transcription, id });
@@ -41,9 +41,7 @@ function WordCard(props) {
         setIsEdited(!isEdited);
     };
 
-    const onButtonChange = () => {
-        setIsEdited(!isEdited);
-    }
+
     const onDeleteClick = () => {
         deleteWord(data.id).then(() => {
             const random = Math.random() * 100;

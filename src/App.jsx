@@ -24,16 +24,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    getAllWords();
-    fetch('http://itgirlschool.justmakeit.ru/api/words')
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          throw new Error('Ошибочка вышла')
-        }
-      })
-
+    getAllWords()
       .then((response) => {
         setData(data = response);
         setLoading(false)
@@ -43,10 +34,10 @@ function App() {
         setLoading(false);
       })
 
-  }, []);
+  }, [gettingAllWords]);
 
   return (
-    <dataContext.Provider value={{ data, setData, isLoading, setLoading, isError, setError }}>
+    <dataContext.Provider value={{ data, setData, isLoading, setLoading, isError, setError, setGettingAllWords }}>
 
       <Router>
         <>
