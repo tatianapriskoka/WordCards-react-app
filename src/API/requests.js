@@ -7,11 +7,11 @@ const URLS = {
 }
 
 export const deleteWord = (id) => {
-    const deleteUrl = URLS.DELETE_WORD.replace(':id', id)
+    const deleteUrl = URLS.DELETE_WORD.replace(':id', id);
     return fetch(deleteUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' } })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Ошибочка')
+                throw new Error('Something went wrong');
             }
         })
         .catch((e) => {
@@ -21,11 +21,11 @@ export const deleteWord = (id) => {
 
 export const getAllWords = () => {
     return fetch(URLS.GET_ALL_WORDS)
-        .then((response) => {
+        .then(response => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('Ошибочка')
+                throw new Error('Something went wrong ...');
             }
         })
 };
@@ -33,19 +33,15 @@ export const getAllWords = () => {
 export const addNewWord = (data) => {
     return fetch(URLS.ADD_WORD, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ...data, tags: 'smth', tags_json: "[smth]" })
+        body: JSON.stringify(data)
     })
-        .then((response) => {
+        .then(response => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('ошибочка')
+                throw new Error('Something went wrong ...');
             }
         })
-
 };
 
 export const editWord = (id, data) => {
@@ -56,11 +52,11 @@ export const editWord = (id, data) => {
         },
         body: JSON.stringify({ ...data, tags: "smth", tags_json: "[smth]" })
     })
-        .then((response) => {
+        .then(response => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('Ошибочка')
+                throw new Error('Something went wrong ...');
             }
         })
 }
