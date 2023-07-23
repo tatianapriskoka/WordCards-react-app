@@ -1,32 +1,31 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import './cardslider.scss';
 import FlashCard from '../FlashCard/FlashCard';
-import dataContext from '../../dataContext';
+import { inject, observer } from 'mobx-react';
 
-function CardSlider(props) {
+
+function CardSlider({ data, isLoading, error, wordsLearned, countWords, ...props }) {
     const { cardIndex } = props;
-    let { data, isLoading, isError } = useContext(dataContext);
     const [index, setIndex] = useState(cardIndex ? cardIndex : 0);
-    const [wordsLearned, setWordsLearned] = useState(0);
 
-    const countWords = () => {
-        let learnedWords = wordsLearned;
 
-        if (learnedWords !== data.length) {
-            setWordsLearned(learnedWords => learnedWords + 1);
-        }
-    };
 
     const card = data.filter((item, i) => {
         return i === index
     });
 
-    if (isLoading) {
-        return <p>Loading ...</p>;
-    }
 
-    if (isError) {
-        return <p>{isError.message}</p>;
+    if (isLoading) {
+        return <div className="container">
+            <div className="circle circle-1"></div>
+            <div className="circle circle-2"></div>
+            <div className="circle circle-3"></div>
+            <div className="circle circle-4"></div>
+            <div className="circle circle-5"></div>
+        </div>;
+    }
+    if (error) {
+        return <p>{error}</p>;
     }
 
     return (
@@ -48,4 +47,14 @@ function CardSlider(props) {
         </>
     )
 }
-export default CardSlider;
+export default inject(({ wordsStore }) => {
+    const { data, getAllWords, isLoaded, isLoading, error, wordsLearned, countWords } = wordsStore;
+    useEffect(() => {
+        if (!isLoaded) {
+            getAllWords();
+        }
+    }, [])
+    return {
+        data, getAllWords, isLoaded, isLoading, error, wordsLearned, countWords
+    };
+})(observer(CardSlider));

@@ -1,43 +1,27 @@
 import './App.scss';
 import WordList from './components/wordList/WordList';
 import Header from './components/header/Header';
-
 import CardSlider from './components/cardslider/CardSlider';
-import dataContext from './dataContext';
+
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+
 } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getAllWords } from './API/requests';
+
+import { Provider } from 'mobx-react';
+import WordsStore from './stores/WordsStore';
 
 
 
 function App() {
-  let [data, setData] = useState([]);
-  let [isLoading, setLoading] = useState(false);
-  let [isError, setError] = useState(null);
-  let [gettingAllWords, setGettingAllWords] = useState(0);
-
-  useEffect(() => {
-    setLoading(true);
-    getAllWords()
-      .then((response) => {
-        setData(data = response);
-        setLoading(false)
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      })
-
-  }, [gettingAllWords]);
-
+  const store = {
+    wordsStore: new WordsStore()
+  };
   return (
-    <dataContext.Provider value={{ data, setData, isLoading, setLoading, isError, setError, setGettingAllWords }}>
+    <Provider {...store}>
 
       <Router>
         <>
@@ -52,7 +36,7 @@ function App() {
 
         </>
       </Router>
-    </dataContext.Provider>
+    </Provider>
   );
 }
 
